@@ -205,10 +205,13 @@ header .shopping span {
 
 
 /* Position the buttons absolutely */
+
 .checkout-buttons {
     position: absolute;
-    top: 50%; /* Adjust as per your design */
-    right: 20px; /* Adjust as per your design */
+    top: 50%;
+    /* Adjust as per your design */
+    right: 20px;
+    /* Adjust as per your design */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -233,8 +236,73 @@ header .shopping span {
 .checkout-buttons .closeShopping:hover,
 .checkout-buttons .save-pdf:hover,
 .checkout-buttons .clear-cart:hover {
-    background-color: #ff6347; /* Change color on hover if needed */
+    background-color: #ff6347;
+    /* Change color on hover if needed */
 }
+
+#listCard .buyer-price {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+#listCard .buyer-name {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+#listCard .buyer-phone {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+/* สไตล์สำหรับกรอบ */
+
+.buyer-info {
+    border: 2px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #FEFEDF;
+}
+
+
+/* สไตล์สำหรับป้ายชื่อ */
+
+.buyer-info label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* สไตล์สำหรับช่องกรอกข้อมูล */
+
+.buyer-info input[type="text"],
+.buyer-info input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* ให้ขนาดเพิ่มเติมเข้าไปในขอบของช่องกรอก */
+}
+
+
+/* สไตล์สำหรับการกรอกข้อมูล */
+
+.buyer-info input[type="text"]:focus,
+.buyer-info input[type="tel"]:focus {
+    outline: none;
+    /* ลบเส้นขอบในขณะที่ได้รับการโฟกัส */
+    border-color: #007bff;
+    /* เปลี่ยนสีเส้นขอบเมื่อได้รับการโฟกัส */
+}
+
 
 /* เพิ่มเงื่อนไขในเมดิย่าควอรี่เพื่อปรับขนาดขององค์ประกอบในเว็บไซต์ */
 

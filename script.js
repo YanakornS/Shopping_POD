@@ -123,6 +123,7 @@ function clearCart() {
 
 
 //ใช้ในการโหลดการ์ดสินค้าใหม่เพื่ออัปเดต UI แสดงรายการสินค้าที่มีในตะกร้า และคำนวณราคารวม.
+// ใช้ในการโหลดการ์ดสินค้าใหม่เพื่ออัปเดต UI แสดงรายการสินค้าที่มีในตะกร้า และคำนวณราคารวม.
 function reloadCard() {
   // ล้างค่าของ listCard เพื่อเตรียมการแสดงสินค้าใหม่
   listCard.innerHTML = "";
@@ -130,6 +131,21 @@ function reloadCard() {
   // กำหนดค่าเริ่มต้นของ count และ totalPrice เป็น 0
   let count = 0;
   let totalPrice = 0;
+
+  // เรียกใช้งานฟังก์ชันเพื่อเรียกข้อมูลของผู้ซื้อ
+  const buyerName = document.getElementById("buyer-name").value;
+  const buyerPhone = document.getElementById("buyer-phone").value;
+
+  
+
+  // สร้าง element เพื่อแสดงข้อมูลผู้ซื้อใน listCard
+  let buyerInfoDiv = document.createElement("div");
+  buyerInfoDiv.innerHTML = `
+        <div class="buyer-name">ชื่อผู้ซื้อ: ${buyerName}</div>
+        <div class="buyer-phone">เบอร์โทรศัพท์: ${buyerPhone}</div>
+        
+    `;
+  listCard.appendChild(buyerInfoDiv);
 
   // วนลูปผ่าน listCards เพื่อแสดงสินค้าที่มีอยู่ในตะกร้า
   listCards.forEach((value, key) => {
@@ -158,8 +174,6 @@ function reloadCard() {
         value.quantity + 1
       })">+</button>
                 </div>
-                
-                <div>
             `;
 
       // เพิ่ม element ที่สร้างเข้าไปใน listCard
@@ -167,14 +181,12 @@ function reloadCard() {
     }
   });
 
+  // เพิ่มราคารวมสินค้าใน buyerInfoDiv
+  buyerInfoDiv.innerHTML += `<div class="buyer-price">ราคารวมสินค้า: ${totalPrice.toLocaleString()} บาท</div>`;
   // แสดงราคารวมและจำนวนสินค้าทั้งหมด
   total.innerText = totalPrice.toLocaleString();
   quantity.innerText = count;
 }
-
-
-
-
 document.getElementById("save-pdf").addEventListener("click", function () {
   // จับภาพองค์ประกอบคอนเทนเนอร์ใบเสร็จรับเงิน
   const receiptContainer = document.getElementById("listCard");
@@ -185,3 +197,4 @@ document.getElementById("save-pdf").addEventListener("click", function () {
     saveAs(blob, "Check.png");
   });
 });
+
